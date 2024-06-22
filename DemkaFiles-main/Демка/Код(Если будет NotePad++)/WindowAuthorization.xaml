@@ -1,0 +1,35 @@
+﻿<Window x:Class="NewTraining.WindowAuthorization"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NewTraining"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="400" Width="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="360"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel>
+                <TextBlock Text="Логин" HorizontalAlignment="Center" FontFamily="Cascadia Code" FontSize="20"></TextBlock>
+                <TextBox Width="200" Height="24" Margin="0 0 0 0" Padding="1" VerticalContentAlignment="Center" x:Name="tbLogin"></TextBox>
+                <TextBlock Text="Пароль" HorizontalAlignment="Center" FontFamily="Cascadia Code" Margin="0 5 0 0" FontSize="20"></TextBlock>
+                <TextBox Width="200" Height="24" Margin="0 0 0 0" x:Name="tbPassword" Padding="1" VerticalContentAlignment="Center"></TextBox>
+
+                <Button Margin="0 5 0 0" Height="24" Width="160" x:Name="btnAuth" Click="btnAuth_Click">
+                    <TextBlock Text="Войти" HorizontalAlignment="Center" FontFamily="Cascadia Code" FontSize="16" VerticalAlignment="Center"></TextBlock>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

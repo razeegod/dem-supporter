@@ -1,0 +1,16 @@
+public partial class WindowCheckRole : Window
+    {
+        public WindowCheckRole(string role)
+        {
+            InitializeComponent();
+
+            tbkRole.Text = role;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            WindowAuthorization goAuthorization = new WindowAuthorization();
+            goAuthorization.Show();
+            this.Close();
+        }
+    }

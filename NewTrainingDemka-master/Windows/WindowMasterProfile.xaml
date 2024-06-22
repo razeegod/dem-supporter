@@ -1,0 +1,104 @@
+﻿<Window x:Class="NewTraining.Windows.WindowMasterProfile"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NewTraining.Windows"
+        mc:Ignorable="d"
+        Title="WindowMasterProfile" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Border Background="AliceBlue" Grid.ColumnSpan="3"/>
+        <Border Background="AliceBlue" Grid.ColumnSpan="3" Grid.Row="3"/>
+        <Border BorderBrush="AliceBlue" BorderThickness="0 0 5 0" Grid.Column="2" Grid.RowSpan="3"/>
+        <Border BorderBrush="AliceBlue"  BorderThickness="5 0 0 0" Grid.RowSpan="3"/>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.ColumnSpan="3" VerticalAlignment="Center" Margin="5">
+            <TextBlock x:Name="tbFI" Text="Фамилия Имя" HorizontalAlignment="Center" FontFamily="Cascadia Code" FontSize="20"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.ColumnSpan="2" VerticalAlignment="Center" Margin="10">
+            <TextBlock Text="Мастер" HorizontalAlignment="Center" FontFamily="Cascadia Code" FontSize="20"/>
+        </StackPanel>
+
+        <StackPanel Margin="10 5 5 5" Grid.Row="1">
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="tbSearch" Margin="0 5 0 5" Width="111" />
+                <Button Content="Поиск" Margin="5" Click="Button_Click"/>
+            </StackPanel>
+
+            <ListBox x:Name="lbEquipments" Height="75" ToolTip="Для отображения нужных заявок переместите их вниз">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=Title}" Margin="3"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <Button x:Name="btnUp" Content="Up" Margin="20 0 0 0" Click="btnUp_Click" />
+                <Button x:Name="btnDown" Content="Down" Margin="50 0 0 0" Click="btnDown_Click" />
+            </StackPanel>
+
+            <ListBox x:Name="lbNoEquipments" Height="75" ToolTip="Для отображения нужных заявок переместите их вниз">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=Title}" Margin="3" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <Button Content="Print" Margin="0 5 0 0" Width="140" Click="Button_Click_1" />
+        </StackPanel>
+
+        <Button x:Name="btnBack" Content="Назад" Grid.Row="2" Margin="10" Click="btnBack_Click" />
+
+
+        <Grid Grid.Column="1" Grid.Row="1" Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="10*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Заявки" Margin="5" VerticalAlignment="Center" FontSize="22" FontFamily="Cascadia Code" />
+
+            <ListView x:Name="lvApplications" Grid.Row="1"  Margin="4 0 4 4" d:ItemsSource="{d:SampleData ItemCount=2}"
+                      HorizontalContentAlignment="Stretch">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="{Binding Path = ApplicationID}" HorizontalAlignment="Left" FontSize="18" FontWeight="Medium"/>
+                            <TextBlock Text="{Binding Path = Equipment.Title}" Grid.Column="1" HorizontalAlignment="Left" FontSize="18"/>
+                            <TextBlock Text="{Binding Path = Defect}" Grid.Column="2" HorizontalAlignment="Left" FontSize="18"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            
+            <Button x:Name="CommentsButton" Margin="10 5" Grid.Column="1" Content="Комментарии" FontSize="20" Click="CommentsButton_Click" />
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,6 @@
+Height="200" Width="400">
+
+<StackPanel>
+	<TextBlock Text="Role" x:Name="tbkRole" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="52"/>
+	<Button Content="Назад" Margin="100 10" Click="Button_Click"></Button>
+</StackPanel>
